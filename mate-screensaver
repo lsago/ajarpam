@@ -1,0 +1,11 @@
+#%PAM-1.0
+
+# Fedora Core
+auth	   sufficient   pam_ajar.so [pass=with spaces[\]]  # 'with spaces[]'
+#auth	   sufficient   pam_ajar.so [pass=with spaces\]]  # 'with spaces]'
+#auth	   sufficient   pam_ajar.so [pass=with spaces[]  # 'with spaces['
+auth       include	system-auth
+auth       optional     pam_gnome_keyring.so
+account    include	system-auth
+password   include	system-auth
+session    include	system-auth
